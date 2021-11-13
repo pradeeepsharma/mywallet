@@ -1,2 +1,14 @@
-package com.learning.microservice.mywallet.model;public class CustomerResponse {
+package com.learning.microservice.mywallet.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class CustomerResponse {
+    private Long customerId;
 }

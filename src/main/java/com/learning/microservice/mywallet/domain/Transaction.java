@@ -1,4 +1,4 @@
-package com.learning.microservice.mywallet.bean;
+package com.learning.microservice.mywallet.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
