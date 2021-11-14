@@ -1,19 +1,14 @@
 package com.learning.microservice.mywallet.service;
 
-import ch.qos.logback.core.Context;
 import com.learning.microservice.mywallet.domain.Customer;
 import com.learning.microservice.mywallet.exception.CustomerAlreadyExistException;
-import com.learning.microservice.mywallet.exception.CustomerNotFoundException;
 import com.learning.microservice.mywallet.exception.InvalidInputException;
 import com.learning.microservice.mywallet.model.CustomerRequest;
 import com.learning.microservice.mywallet.repository.CustomerRepository;
-import com.learning.microservice.mywallet.repository.LoginInfoRepository;
 import com.learning.microservice.mywallet.util.MessageUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -58,5 +53,9 @@ public class CustomerService {
         List<Customer> customers = new ArrayList<>();
         customerIterable.forEach(customers::add);
         return customers;
+    }
+
+    public Customer getCustomer(Long id) {
+        return getAllCustomers().stream().filter(customer->customer.getId().equals(id)).findFirst().orElseThrow(()->new CustomerAlreadyExistException("no customer found"));
     }
 }

@@ -42,8 +42,8 @@ public class CustomerController {
         return new ResponseEntity<>(customerService.getAllCustomers(),HttpStatus.OK);
     }
 
-    @PostMapping(value = "/customer/{id}/login/{password}")
-    public ResponseEntity<Boolean> createLogin(@NotNull @PathVariable Long id,@NotNull @PathVariable String password)throws CustomerNotFoundException {
-        return new ResponseEntity<>(customerService.createLogin(id, password), HttpStatus.CREATED);
+    @GetMapping(value = "/customer/{id}")
+    public ResponseEntity<Customer> createLogin(@NotNull @PathVariable Long id)throws CustomerNotFoundException {
+        return new ResponseEntity<>(customerService.getCustomer(id), HttpStatus.CREATED);
     }
 }
