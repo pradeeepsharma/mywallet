@@ -25,6 +25,4 @@ public class Customer {
     private Date dob;
     private String phone;
     private String postCode;
-    private Double balance;
-
 }

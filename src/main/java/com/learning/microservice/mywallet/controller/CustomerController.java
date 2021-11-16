@@ -46,4 +46,14 @@ public class CustomerController {
     public ResponseEntity<Customer> createLogin(@NotNull @PathVariable Long id)throws CustomerNotFoundException {
         return new ResponseEntity<>(customerService.getCustomer(id), HttpStatus.CREATED);
     }
+
+    @GetMapping(value = "/customer/login/{email}")
+    public ResponseEntity<Customer> getCustomer(@NotNull @PathVariable String email)throws CustomerNotFoundException {
+        return new ResponseEntity<>(customerService.getCustomer(email), HttpStatus.CREATED);
+    }
+
+    @PutMapping("/customer/balanceUpdate")
+    public ResponseEntity<Object> updateBalance(){
+        return null;
+    }
 }
